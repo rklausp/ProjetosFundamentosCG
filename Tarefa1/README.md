@@ -7,62 +7,62 @@ VAO → Vertex Array Object: armazena ponteiros que são responsáveis por fazer
 EBO → Element Buffer Objects: está armazendo dentro do VAO e é utilizado para associar a ideia de índices e evitar a especificação de vértices replicados no VBO.
 
 5. Para fazer o triângulo foram adicionados os vértices novos e aumentado o número de vértices em glDrawArrays
-![Print de execucao da atividade](/prints/print1.png)
-![Print de execucao da atividade](/prints/print2.png)
+![Print de execucao da atividade](prints/print1.png)
+![Print de execucao da atividade](prints/print2.png)
 
 
 Na a, para deixar apenas o polígono preenchido foram zerados os valores das variáveis de ponto e linha.
-![Print de execucao da atividade](/prints/print3.png)
-![Print de execucao da atividade](/prints/print4.png)
+![Print de execucao da atividade](prints/print3.png)
+![Print de execucao da atividade](prints/print4.png)
 
 Na B, foi trocado GL_TRIANGLES por GL_LINE_LOOP.
-![Print de execucao da atividade](/prints/print5.png)
-![Print de execucao da atividade](/prints/print6.png)
+![Print de execucao da atividade](prints/print5.png)
+![Print de execucao da atividade](prints/print6.png)
 
 Da mesma maneira, na C para deixar apenas os pontos se utiliza GL_POINTS.
-![Print de execucao da atividade](/prints/print7.png)
-![Print de execucao da atividade](/prints/print8.png)
+![Print de execucao da atividade](prints/print7.png)
+![Print de execucao da atividade](prints/print8.png)
 
 
 No final, para todos foram chamadas todas as chamadas. 
-![Print de execucao da atividade](/prints/print9.png)
-![Print de execucao da atividade](/prints/print10.png)
+![Print de execucao da atividade](prints/print9.png)
+![Print de execucao da atividade](prints/print10.png)
 
 
 
 6 - e - Pacman
-![Print de execucao da atividade](/prints/print11.png)
-![Print de execucao da atividade](/prints/print12.png)
-![Print de execucao da atividade](/prints/print13.png)
+![Print de execucao da atividade](prints/print11.png)
+![Print de execucao da atividade](prints/print12.png)
+![Print de execucao da atividade](prints/print13.png)
 
 
 
 Para transformar o pacman em círculo é só mudar de 0, nVertices para:
-![Print de execucao da atividade](/prints/print14.png)
-![Print de execucao da atividade](/prints/print15.png)
+![Print de execucao da atividade](prints/print14.png)
+![Print de execucao da atividade](prints/print15.png)
 
 
 Para fazer o octógono é só mudar o número de pontos para 2
-![Print de execucao da atividade](/prints/print16.png)
-![Print de execucao da atividade](/prints/print17.png)
+![Print de execucao da atividade](prints/print16.png)
+![Print de execucao da atividade](prints/print17.png)
 
 
 Para fazer pentágono, o número de pontos é 5.
-![Print de execucao da atividade](/prints/print18.png)
-![Print de execucao da atividade](/prints/print19.png)
+![Print de execucao da atividade](prints/print18.png)
+![Print de execucao da atividade](prints/print19.png)
 
 
 d- Para fatia de pizza primeiro voltamos o glDArrays para como estava antes como Pacman
-![Print de execucao da atividade](/prints/print20.png)
+![Print de execucao da atividade](prints/print20.png)
 E mudar o slice.
-![Print de execucao da atividade](/prints/print21.png)
+![Print de execucao da atividade](prints/print21.png)
 
 
 
 7 - Para fazer a espiral, aumentou-se o número de vértices, colocou-se o raio inicial em 0, e no loop do círculo, adicionou-se um incremento de raio a cada iteração.
-![Print de execucao da atividade](/prints/print22.png)
-![Print de execucao da atividade](/prints/print23.png)
-![Print de execucao da atividade](/prints/print24.png)
+![Print de execucao da atividade](prints/print22.png)
+![Print de execucao da atividade](prints/print23.png)
+![Print de execucao da atividade](prints/print24.png)
 
 
 8 - a- Nesse caso o VBO armazenaria a posição e cor dos vértices, ou seja seus elementos.O VAO armazenaria as configurações dos VBOs e EBOs, sendo este o que associa as informações de vértices a índices, evitando especificações de vértices replicadas, logo, organizando as informações de cada vértice. O EBO pode ser utilizado para economizar e retulizar vértices, tornando o processo mais ágil.
