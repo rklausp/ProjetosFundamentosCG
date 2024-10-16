@@ -120,23 +120,22 @@ int main()
 	background.setupSprite(texID, vec3(400.0, 300.0, 0.0), vec3(imgWidth * 5.0, imgHeight * 1.5, 1.0), 1, 1);
 
 	// Inicializando a sprite do personagem
-	int walkTexID  = loadTexture("../Texturas/OwletMonster/Owlet_Monster_Run_6.png", imgWidth, imgHeight);
+	int walkTexID = loadTexture("../Texturas/OwletMonster/Owlet_Monster_Run_6.png", imgWidth, imgHeight);
 	character.setupSprite(walkTexID, vec3(50.0, 200.0, 0.0), vec3(imgWidth / 6.0 * 2.0, imgHeight * 2.0, 1.0), 6, 1);
-    int jumpTexID = loadTexture("../Texturas/OwletMonster/Owlet_Monster_Jump_8.png", imgWidth, imgHeight);
-	character.setupSprite(jumpTexID, vec3(50.0, 200.0, 0.0), vec3(imgWidth / 8.0 * 2.0, imgHeight * 2.0, 1.0), 6, 1);
+	int jumpTexID = loadTexture("../Texturas/OwletMonster/Owlet_Monster_Jump_8.png", imgWidth, imgHeight);
 
 	// Inicializando a sprite do obstaculo
-    texID = loadTexture("../Texturas/ObstacleSnow.jpg", imgWidth, imgHeight);
-    obstacle.setupSprite(texID, vec3(700.0, 200.0, 0.0), vec3(50.0, 150.0, 1.0), 1, 1);
-	
+	texID = loadTexture("../Texturas/ObstacleSnow.jpg", imgWidth, imgHeight);
+	obstacle.setupSprite(texID, vec3(700.0, 200.0, 0.0), vec3(50.0, 150.0, 1.0), 1, 1);
+
 	// Configuracoes de pulo do personagem
 	float jumpSpeed = 2.0f;
-    float gravity = 0.01f;
-    bool isJumping = false;
-    float velocityY = 1.0f;
-    float groundY = character.position.y;
+	float gravity = 0.01f;
+	bool isJumping = false;
+	float velocityY = 1.0f;
+	float groundY = character.position.y;
 
-	bool checkCollision(Sprite a, Sprite b);  
+	bool checkCollision(Sprite a, Sprite b);
 
 	glUseProgram(shaderID);
 
@@ -180,44 +179,46 @@ int main()
 			character.position.x -= vel;
 		if (keys[GLFW_KEY_RIGHT] || keys[GLFW_KEY_D])
 			character.position.x += vel;
-	    if (keys[GLFW_KEY_UP] || keys[GLFW_KEY_W])
+		if (keys[GLFW_KEY_UP] || keys[GLFW_KEY_W])
 			character.position.y += vel;
 		// Incremento circular (em loop) do índice do frame
 
 		background.position.x -= vel;
 
-       if (background.position.x <= -400) { 
-         background.position.x = 400; 
-        }
+		if (background.position.x <= -400)
+		{
+			background.position.x = 400;
+		}
 
-		if ((keys[GLFW_KEY_W] || keys[GLFW_KEY_UP]) && !isJumping) {
-    isJumping = true;
-    velocityY = jumpSpeed;
-}
+		if ((keys[GLFW_KEY_W] || keys[GLFW_KEY_UP]) && !isJumping)
+		{
+			isJumping = true;
+			velocityY = jumpSpeed;
+		}
 
-if (isJumping) {
-    character.position.y += velocityY;
-    velocityY -= gravity; 
+		if (isJumping)
+		{
+			character.position.y += velocityY;
+			velocityY -= gravity;
+			character.texID = jumpTexID;
+			if (character.position.y <= groundY)
+			{
+				character.position.y = groundY;
+				isJumping = false;
+			}
+		}
+		else
+		{
+			character.texID = walkTexID;
+		}
 
-    character.texID = jumpTexID; 
-    character.nFrames = 8; 
-    character.FPS = 12.0; 
-    if (character.position.y <= groundY) { 
-        character.position.y = groundY;
-        isJumping = false;
-    }
-} else {
-    character.texID = walkTexID;
-    character.nFrames = 6;
-    character.FPS = 12.0; 
-}
+		obstacle.position.x -= vel;
 
-obstacle.position.x -= vel;
+		if (obstacle.position.x <= -50)
+		{
+			obstacle.position.x = 850;
+		}
 
-if (obstacle.position.x <= -50) { 
-    obstacle.position.x = 850; 
-}
-        
 		drawSprite(obstacle, shaderID);
 
 		float now = glfwGetTime();
@@ -226,16 +227,17 @@ if (obstacle.position.x <= -50) {
 		{
 			character.iFrame = (character.iFrame + 1) % character.nFrames;
 			character.lastTime = now;
-		}	
+		}
 		offsetTex.s = character.iFrame * character.d.s;
 		offsetTex.t = 0.0;
 		glUniform2f(glGetUniformLocation(shaderID, "offsetTex"), offsetTex.s, offsetTex.t);
 		drawSprite(character, shaderID);
 
-	    if (checkCollision(character, obstacle)) {
-        std::cout << "Game Over!" << std::endl;
-        glfwSetWindowShouldClose(window, GL_TRUE);
-    }
+		if (checkCollision(character, obstacle))
+		{
+			std::cout << "Game Over!" << std::endl;
+			glfwSetWindowShouldClose(window, GL_TRUE);
+		}
 
 		// Troca os buffers da tela
 		glfwSwapBuffers(window);
@@ -264,8 +266,6 @@ void key_callback(GLFWwindow *window, int key, int scancode, int action, int mod
 		keys[key] = false;
 	}
 }
-
-
 
 int setupShader()
 {
@@ -313,8 +313,6 @@ int setupShader()
 
 	return shaderProgram;
 }
-
-
 
 void Sprite::setupSprite(int texID, vec3 position, vec3 dimensions, int nFrames, int nAnimations)
 {
@@ -429,9 +427,10 @@ void drawSprite(Sprite spr, GLuint shaderID)
 	glBindVertexArray(0); // Desconectando o buffer de geometria
 }
 
-bool checkCollision(Sprite a, Sprite b) {
-    return (a.position.x < b.position.x + b.dimensions.x &&
-            a.position.x + a.dimensions.x > b.position.x &&
-            a.position.y < b.position.y + b.dimensions.y &&
-            a.position.y + a.dimensions.y > b.position.y);
-    };    
+bool checkCollision(Sprite a, Sprite b)
+{
+	return (a.position.x < b.position.x + b.dimensions.x &&
+			a.position.x + a.dimensions.x > b.position.x &&
+			a.position.y < b.position.y + b.dimensions.y &&
+			a.position.y + a.dimensions.y > b.position.y);
+};
