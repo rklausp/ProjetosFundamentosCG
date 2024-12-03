@@ -1,16 +1,51 @@
-Para utilizar o programa, é necessário executar o código via a file Main.py . Em seguida, irá abrir uma interface do TKINTER dando a possibilidade de escolher qual filtro se deseja utilizar. Seguindo da pergunta se o usuário deseja usar câmera ou não. Caso a resposta for negativa, ele deverá optar por uma imagem do próprio computador para adicionar ao manipulador de filtros.
+# Manipulador de Filtros de Imagens
 
-Filtros:
-Saturação: é possível manipular uma escala de quão saturada você deseja a imagem.
-Rosa: é possível manipular a transparência de quão rosa você deseja a imagem.
-Preto e branco: é possível manipular a escala de cores até preto e branco.
-Neve: efeito de neve caíndo.
-Distorção: imagem distorcida.
-Desenho: imagem em branco e traços escuros, como desenho.
-Carnaval: confetes coloridos caíndo.
-Orelha de Gatinho: usa face dectector para colocar orelha de gato na cabeça.
-Olhos: coloca imagem de um olho nos olhos com face detector.
-Sticker: da a opção dentre 5 stickers a serem selecionados, deve-se preencher no espaço conforme escrito nas opções para funcionar, assim que selecionado, basta clicar em que ponto do código você deseja adicionar o sticker.
+Este programa permite aplicar uma variedade de filtros a imagens ou vídeos utilizando a interface gráfica do **Tkinter**. A seguir estão as instruções para uso e os filtros disponíveis.
 
-Para sair de determinado filtro, basta clicar o botão 'q' do teclado.
-Para salvar determinado filtro, deve-se clicar o botão 's' do teclado e não esquecer de adicionar o .png ou .jpg no final do nome para imagem conseguir ser salva.
+## Como Utilizar
+
+1. **Executar o Programa**  
+   Para iniciar, execute o arquivo `Main.py`. Isso abrirá uma interface gráfica onde você poderá escolher o filtro desejado.
+
+2. **Escolha de Fonte de Imagem**  
+   Após selecionar o filtro, o programa perguntará se você deseja usar a câmera. Caso a resposta seja negativa, você poderá escolher uma imagem diretamente do seu computador para aplicar o filtro.
+
+## Filtros Disponíveis
+
+1. **Saturação**  
+   Manipule a saturação da imagem em uma escala que define quão saturada você deseja a imagem.
+
+2. **Rosa**  
+   Manipule a transparência do filtro rosa para alterar o tom rosa na imagem.
+
+3. **Preto e Branco**  
+   Ajuste a escala de cores até chegar ao preto e branco completo.
+
+4. **Neve**  
+   Aplica um efeito de neve caindo sobre a imagem.
+
+5. **Distorção**  
+   Aplica distorções na imagem, criando um efeito visual interessante.
+
+6. **Desenho**  
+   Transforma a imagem em um estilo de desenho, com fundo branco e traços escuros.
+
+7. **Carnaval**  
+   Aplica confetes coloridos caindo na imagem, simulando um efeito de carnaval.
+
+8. **Orelha de Gatinho**  
+   Utiliza um detector de faces para colocar orelhas de gato na cabeça da pessoa na imagem.
+
+9. **Olhos**  
+   Adiciona uma imagem de olho nos olhos da pessoa na imagem, utilizando o detector de faces.
+
+10. **Sticker**  
+    Oferece 5 opções de stickers para você escolher e adicionar à imagem. Basta preencher as opções corretamente e clicar no ponto onde deseja adicionar o sticker.
+
+## Comandos
+
+- **Sair de um Filtro**  
+  Para sair de um filtro, basta pressionar o botão **'q'** no teclado.
+
+- **Salvar Imagem**  
+  Para salvar a imagem com o filtro aplicado, pressione **'s'** no teclado. Lembre-se de adicionar a extensão `.png` ou `.jpg` ao nome do arquivo para que ele seja salvo corretamente.
